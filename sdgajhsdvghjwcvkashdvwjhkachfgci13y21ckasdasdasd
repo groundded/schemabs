@@ -132,6 +132,83 @@ function For(Duration, Function)
     end
 end
 
+function CreateHider(Name)
+	local function New(Class, Properties)
+		local instance = Instance.new(Class)
+		
+		for Property,Value in next, Properties do
+			instance[Property] = Value
+		end
+		
+		return instance
+	end
+	
+	local gethui = gethui or function() return game.Players.LocalPlayer.PlayerGui end
+	
+	local ScreenGui = New("ScreenGui", {
+		Name = "ScreenGui",
+		Parent = gethui(),
+		IgnoreGuiInset = true,
+		ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
+	})
+
+	local Background = New("ImageLabel", {
+		Name = "Background",
+		Parent = ScreenGui,
+		Image = "http://www.roblox.com/asset/?id=12549783359",
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BackgroundTransparency = 1,
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.fromScale(0.5, 0.5),
+		Size = UDim2.fromScale(1, 1),
+		ZIndex = 0
+	})
+
+	local Title = New("TextLabel", {
+		Name = "Title",
+		Parent = Background,
+		FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+		Text = Name or "",
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextSize = 40,
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(0.5, 0, 0.5, -15),
+		Size = UDim2.fromOffset(200, 0)
+	})
+
+	local Info = New("TextLabel", {
+		Name = "Info",
+		Parent = Background,
+		FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.Medium, Enum.FontStyle.Normal),
+		Text = "",
+		TextColor3 = Color3.fromRGB(255, 255, 255),
+		TextSize = 25,
+		AnchorPoint = Vector2.new(0.5, 0.5),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BorderSizePixel = 0,
+		Position = UDim2.new(0.5, 0, 0.5, 15),
+		Size = UDim2.fromOffset(200, 0)
+	})
+	
+	return ScreenGui, Info
+end
+
+local ScreenGui, Info = CreateHider("Dungeons")
+
+task.spawn(function()
+    while task.wait() do
+        if ScreenGui then
+            Info.Text = `Wave {GetWave()}`
+        end
+    end
+end)
+
 local MapData = {
     ["Sky Islands"] = {
         ["Center"] = CFrame.new(-480.7333984375, 16.30082893371582, -257.36883544921875),
@@ -271,6 +348,10 @@ elseif game.PlaceId == 11424731604 then
             if Wave == 26 then
                 if CurrentIsland.Name == "Lobby" then
                     task.wait(5)
+
+                    if ScreenGui then
+                        ScreenGui:Remove()
+                    end
 
                     local FruitName = Store()
 
