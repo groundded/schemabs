@@ -332,6 +332,7 @@ elseif game.PlaceId == 11424731604 then
 
     local StartTime = os.clock()
     local Respawned = false
+    local OpenedWindow = false
 
     while task.wait() do
         if #workspace.Islands:GetChildren() == 2 then
@@ -357,36 +358,42 @@ elseif game.PlaceId == 11424731604 then
 
                     if getgenv().Webhook ~= "" then
                         if HasFruitBag() then
-                            SendWebhook(
-                                {
-                                    Url = getgenv().Webhook,
-                                    Content = "@everyone",
-                                    Embeds = {
-                                        [1] = {
-                                            ["title"] = "Dungeon Completed",
-                                            ["type"] = "rich",
-                                            ["color"] = tonumber(0xab1f33),
-                                            ["fields"] = {
-                                                {
-                                                    ["name"] = "Username",
-                                                    ["value"] = "||*" ..
-                                                        game:GetService("Players").LocalPlayer.Name "*||",
-                                                    ["inline"] = true
+                            local Success, ReturnedValue = pcall(function()
+                                SendWebhook(
+                                    {
+                                        Url = getgenv().Webhook,
+                                        Content = "@everyone",
+                                        Embeds = {
+                                            [1] = {
+                                                ["title"] = "Dungeon Completed",
+                                                ["type"] = "rich",
+                                                ["color"] = tonumber(0xab1f33),
+                                                ["fields"] = {
+                                                    {
+                                                        ["name"] = "Username",
+                                                        ["value"] = "||*" .. game:GetService("Players").LocalPlayer.Name .. "*||",
+                                                        ["inline"] = true
+                                                    },
+                                                    {
+                                                        ["name"] = "Fruit",
+                                                        ["value"] = "*" .. FruitName .. "*",
+                                                        ["inline"] = true
+                                                    }
                                                 },
-                                                {
-                                                    ["name"] = "Fruit",
-                                                    ["value"] = "*" .. FruitName .. "*",
-                                                    ["inline"] = true
+                                                ["footer"] = {
+                                                    ["text"] = "Vamp Hub",
+                                                    ["icon_url"] = "https://cdn.discordapp.com/icons/1254817072224141367/64629b9afc19d9c674f017b20b4d5fea.webp?size=128"
                                                 }
-                                            },
-                                            ["footer"] = {
-                                                ["text"] = "Vamp Hub",
-                                                ["icon_url"] = "https://cdn.discordapp.com/icons/1254817072224141367/64629b9afc19d9c674f017b20b4d5fea.webp?size=128"
                                             }
                                         }
                                     }
-                                }
-                            )
+                                )
+                            end)
+
+                            if not OpenedWindow then
+                                messagebox(tostring(ReturnedValue), tostring(Success), 1)
+                                OpenedWindow = true
+                            end
                         else
                             SendWebhook(
                                 {
@@ -400,8 +407,7 @@ elseif game.PlaceId == 11424731604 then
                                             ["fields"] = {
                                                 {
                                                     ["name"] = "Username",
-                                                    ["value"] = "||*" ..
-                                                        game:GetService("Players").LocalPlayer.Name "*||",
+                                                    ["value"] = "||*" .. game:GetService("Players").LocalPlayer.Name .. "*||",
                                                     ["inline"] = true
                                                 },
                                                 {
