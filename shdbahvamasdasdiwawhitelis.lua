@@ -5,6 +5,7 @@ return {
     "7ebcce77-f71e-4a03-9ee4-92bde73109fa", -- me
     "2DF189C2-E30A-4C38-A32B-5366226C478A", -- me
     "7A484D28-0415-4F42-87B6-30A0A67363E9", -- staff
+    "5B7D9CA3-9052-452D-A361-8E89984D0DF6", -- staff
     "9b3cf7aa-0789-4c8c-9f6f-da6beb4292d6" -- 736278826786619393 permm
     -- Add more HWIDs here
 }
