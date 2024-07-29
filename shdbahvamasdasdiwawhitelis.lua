@@ -4,6 +4,7 @@ return {
     "177CCF1A-7F3C-4CC9-A790-495C6CF47B53", -- 695210936553963540 1 week
     "7ebcce77-f71e-4a03-9ee4-92bde73109fa", -- me
     "2DF189C2-E30A-4C38-A32B-5366226C478A", -- me
+    "7A484D28-0415-4F42-87B6-30A0A67363E9", -- staff
     "9b3cf7aa-0789-4c8c-9f6f-da6beb4292d6" -- 736278826786619393 permm
     -- Add more HWIDs here
 }
