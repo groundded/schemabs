@@ -1,4 +1,4 @@
-local HWIDTable = loadstring(game:HttpGet("https://raw.githubusercontent.com/groundded/schemabs/main/shdbahvamasdasdiwawhitelis.lua"))() -- We are making a variable for where your HWID / ClientID table is going to be located. (You can use pastebin / github)
+local HWIDTable = loadstring(game:HttpGet("https://pastebin.com/raw/ntwE5H5x"))() -- We are making a variable for where your HWID / ClientID table is going to be located. (You can use pastebin / github)
 
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
