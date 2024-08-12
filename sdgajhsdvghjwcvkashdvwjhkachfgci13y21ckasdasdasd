@@ -396,7 +396,7 @@ elseif game.PlaceId == 11424731604 then
                                                 },
                                                 ["footer"] = {
                                                     ["text"] = "Vamp Hub",
-                                                    ["icon_url"] = "https://cdn.discordapp.com/icons/1254817072224141367/64629b9afc19d9c674f017b20b4d5fea.webp?size=128"
+                                                    ["icon_url"] = "https://cdn.discordapp.com/attachments/1267611749583163465/1271971110677905428/vamp.png?ex=66bb4128&is=66b9efa8&hm=7dda4bec1d1b25b70bf484250f654c758503cf904d5a7edcf200b42a6fc0abaa&"
                                                 }
                                             }
                                         }
@@ -432,7 +432,7 @@ elseif game.PlaceId == 11424731604 then
                                             },
                                             ["footer"] = {
                                                 ["text"] = "Vamp Hub",
-                                                ["icon_url"] = "https://cdn.discordapp.com/icons/1254817072224141367/64629b9afc19d9c674f017b20b4d5fea.webp?size=128"
+                                                ["icon_url"] = "https://cdn.discordapp.com/attachments/1267611749583163465/1271971110677905428/vamp.png?ex=66bb4128&is=66b9efa8&hm=7dda4bec1d1b25b70bf484250f654c758503cf904d5a7edcf200b42a6fc0abaa&"
                                             }
                                         }
                                     }
