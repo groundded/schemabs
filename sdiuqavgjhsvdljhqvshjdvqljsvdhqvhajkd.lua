@@ -194,7 +194,7 @@ ScreenInsets = Enum.ScreenInsets.DeviceSafeInsets
 local Background = New("ImageLabel", {
 Name = "Background",
 Parent = ScreenGui,
-Image = "http://www.roblox.com/asset/?id=12549783359",
+Image = "http://www.roblox.com/asset/?id=2499785599",
 AnchorPoint = Vector2.new(0.5, 0.5),
 BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 BackgroundTransparency = 1,
